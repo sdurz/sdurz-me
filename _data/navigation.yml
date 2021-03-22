@@ -1,0 +1,14 @@
+# main links
+main:
+  - title: "Outdoor"
+    url: /category/outdoor/
+  - title: "Travel"
+    url: /category/travel/
+  - title: "Tags"
+    url: /tags/
+  - title: "Archive"
+    url: /archive/
+  - title: "Search"
+    url: /search/
+  - title: "About"
+    url: /about/
