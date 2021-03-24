@@ -2,6 +2,7 @@
 layout: single
 tags: java development spring springboot amqp unit testing
 toc: true
+draft: true
 ---
 Today I checked our CI queue on GitLab and found that a unit test broke the build. 
 
