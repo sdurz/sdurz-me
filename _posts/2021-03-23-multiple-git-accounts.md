@@ -3,6 +3,7 @@ title: Working with multiple GitHub accounts
 layout: single
 toc: true
 tags: git github ssh shell development multiple accounts switching
+category: development
 ---
 
 My old GitHub account was a complete mess. Code snippets, configuration files, dead projects and crappy stuff that made sense only to me, I didn't want to get rid of the whole thing but when I started this site I opted for creating a new account. The newly created account will host this site source and my recent projects.
