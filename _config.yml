@@ -302,5 +302,5 @@ defaults:
 collections:
     iceland:
       output: true
-      permalink: /travel/:collection/:path/
+      permalink: /:collection/:path/
         
