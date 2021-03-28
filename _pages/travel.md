@@ -1,7 +1,7 @@
 ---
-title: Travels
+title: Travel
 layout: category
-permalink: /category/travel/
+permalink: /category/travel
 taxonomy: travel
 ---
 

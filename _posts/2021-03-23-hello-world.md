@@ -1,6 +1,7 @@
 ---
 layout: single
-tag: blog 
+category: blog
+tag: blog ramblings
 ---
 
 # Hello, World!

@@ -2,6 +2,8 @@
 title: About me
 layout: single
 permalink: /about/
+share: false
+author_profile: true
 ---
 
 Hi!

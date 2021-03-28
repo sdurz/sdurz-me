@@ -278,10 +278,30 @@ defaults:
       share: true
       related: true
 
+  - scope:
+      path: ""
+      type: iceland
+    values:
+      layout: single
+      author_profile: false
+      read_time: false
+      share: true
+      related: true
+
   # _pages 
   - scope:
       path: ""
       type: pages
     values:
       layout: single
+      author_profile: true
+      read_time: true
+      share: true
+      related: true
 
+
+collections:
+    iceland:
+      output: true
+      permalink: /travel/:collection/:path/
+        

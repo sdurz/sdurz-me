@@ -29,7 +29,7 @@ As usual you can generate a new SSH key with _ssh-keygen_:
 $ ssh-keygen -t rsa -b 2048
 ```
 
-You will be prompted to enter a passphrease for the newly created key, you can leave it blank if will:
+You will be prompted to enter a passphrease for the newly created key, you can leave it blank if you will:
 ```bash
 $ ssh-keygen 
 Generating public/private rsa key pair.
@@ -45,8 +45,7 @@ When you clone a GitHUB repository, like this:
 ```bash
 $ git clone git@github.com:auser/repo.git
 ```
-
-you are basically specifiying SSH user and hostname in the form _user@hostname_ to the SSH client. Under the hood the SSH client will look through its configuration files and resolve the actual hostname and connection options before establishing the actual connection. The _hostname_ part is treated as a plain hostname only if SSH can't find a corresponding _Host_ entry in its configuration files (namely, the _~/.ssh/config_ file in your home directory or the global _/etc/ssh/config_).
+you are basically specifiying a SSH user and hostname in the form _user@hostname_ to the SSH client. Under the hood the SSH client will look through its configuration files and resolve the actual hostname and connection options before establishing the connection. The _hostname_ part is treated as a plain hostname only if SSH can't find a corresponding _Host_ entry in its configuration files (namely, the _~/.ssh/config_ file in your home directory or the global _/etc/ssh/config_).
 
 Say you have the following declarations in _~/.ssh/config_:
 ```
@@ -55,7 +54,7 @@ Hostname github.com
 User git
 ```
 
-SSH will look for a _Host_ entry matching the *gh* shortcut and determine the correct user and hostname. So you could issue the former command as:
+SSH will look for a _Host_ entry matching the *gh* name and determine the correct user and hostname, user _git_ and hostname _github.com_. So you could issue the former command as:
 ```bash
 $ git co gh:/auser/repo.git
 ```
@@ -102,16 +101,29 @@ Hi dual75! You've successfully authenticated, but GitHub does not provide shell 
 ```
 
 And the new one, _sdurz_:
-```
+```bash
 $ ssh -T github
 Hi sdurz! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
 Everything seem to work properly. 
 
-If something shouln't work check [Error: Permission denied (publickey)](https://docs.github.com/en/enterprise-server@2.20/articles/error-permission-denied-publickey)
+If something shouln't work check [this page on GitHub](https://docs.github.com/en/enterprise-server@2.20/articles/error-permission-denied-publickey)
 
-## Ending
+## Final note
 
-That's it. From now on I will switch GitHub account or just by using _github-old_ instead of _github_.
+That's it. From now on I will clone repositories with the account of choice just by using _github-old_ instead of _github_.
+
+Probably you will want to update the origin of your existing local repositories:
+
+```bash
+$ git remote -v
+origin	ssh://git@github.com/sdurz/sdurz-me.git (fetch)
+origin	ssh://git@github.com/sdurz/sdurz-me.git (push)
+
+$ git remote set-url origin ssh://github/sdurz/sdurz-me.git
+```
+
+so that SSH can pick the right key automatically.
+
 
