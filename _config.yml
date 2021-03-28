@@ -95,11 +95,11 @@ author:
   avatar           : "/assets/images/alessandro-duca.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "A developer who *hates* web authoring."
   location         : "Gorizia, IT"
-  email            :
+  email            : sandro@sdurz.me
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:sandro@sdurz.me"
+    #- label: "Email"
+    #  icon: "fas fa-fw fa-envelope-square"
+    #  url: "mailto:sandro@sdurz.me"
     - label: "Website"
       icon: "fas fa-fw fa-link"
       url: "https://sdurz.me"
@@ -199,7 +199,7 @@ kramdown:
 
 # Sass/SCSS
 sass:
- sass_dir: _sass
+  sass_dir: _sass
   style: compressed # https://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
 
 
