@@ -2,8 +2,8 @@
 main:
   - title: "Outdoor"
     url: /category/outdoor/
-  - title: "Travel"
-    url: /category/travel/
+  - title: "Iceland 2019"
+    url: /iceland/
   - title: "Tags"
     url: /tags/
   - title: "Archive"
