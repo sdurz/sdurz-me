@@ -5,7 +5,11 @@ tags: git github telgram bot api golang documentation example go
 category: development
 ---
 
-This is what it takes to implement an anonymizer bot with **uBot** that intercepts interruption signals and shuts down properly:
+This is what it takes to implement an anonymizer bot with **uBot**. 
+
+The bot will echo back any message on a private chat but the _/start_ command, please not that this behaviour is achived just by composing 
+existing matchers.
+The bot will also that intercept and handle properly any interruption signal by calling a cancel function on the context.
 
 ```golang
 // A simple anonymizer bot that echoes back any message it gets in a private chat, so that you can forward it without exposing the original sender.
