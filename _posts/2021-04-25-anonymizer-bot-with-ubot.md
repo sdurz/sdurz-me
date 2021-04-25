@@ -5,14 +5,18 @@ tags: git github telgram bot api golang documentation example go
 category: development
 ---
 
-This is what it takes to implement an anonymizer bot with **uBot**:
+This is what it takes to implement an anonymizer bot with **uBot** that intercepts interruption signals and shuts down properly:
 
 ```golang
+// A simple anonymizer bot that echoes back any message it gets in a private chat, so that you can forward it without exposing the original sender.
 package main
 
 import (
 	"context"
 	"flag"
+	"log"
+	"os"
+	"os/signal"
 	"sync"
 
 	"github.com/sdurz/axon"
@@ -20,12 +24,16 @@ import (
 )
 
 var (
-	apiKey string
+	apiKey  string
+	signals chan os.Signal
 )
 
 func init() {
 	flag.StringVar(&apiKey, "apikey", "", "api key")
 	flag.Parse()
+
+	signals = make(chan os.Signal, 1)
+	signal.Notify(signals, os.Interrupt)
 }
 
 func main() {
@@ -34,24 +42,33 @@ func main() {
 		bot *ubot.Bot
 	)
 	bot = ubot.NewBot(&ubot.Configuration{APIToken: apiKey})
-	bot.AddMessageHandler(ubot.MessageIsPrivate, func(ctx context.Context, b *ubot.Bot, message axon.O) (done bool, err error) {
-		messageId, _ := message.GetInteger("message_id")
-		chatId, _ := message.GetInteger("chat.id")
-		bot.CopyMessage(axon.O{
-			"chat_id":      chatId,
-			"from_chat_id": chatId,
-			"message_id":   messageId,
+	bot.AddMessageHandler(
+		ubot.And(ubot.MessageIsPrivate, ubot.Not(ubot.MessageHasCommand("/start"))),
+		func(ctx context.Context, b *ubot.Bot, message axon.O) (done bool, err error) {
+			messageId, _ := message.GetInteger("message_id")
+			chatId, _ := message.GetInteger("chat.id")
+			bot.CopyMessage(axon.O{
+				"chat_id":      chatId,
+				"from_chat_id": chatId,
+				"message_id":   messageId,
+			})
+			return
 		})
-		return
-	})
-	bot.Forever(context.Background(), &wg, ubot.GetUpdatesSource)
+
+	ctx, cancel := context.WithCancel(context.Background())
+	go bot.Forever(ctx, &wg, ubot.GetUpdatesSource)
+	wg.Add(1)
+	<-signals
+
+	cancel()
+	wg.Wait()
+	log.Println("done with main")
 }
 ```
 
 Just start it with your api key as a parameter:
 ```bash
-$ ./anonymizer -apyKey <yourapikey>
+$ ./anonymizer -apykey <yourapikey>
 ```
 
-As usual, you can get the code on [GitHub](https://github.com/sdurz/anonymizerbot), please remember that **uBot** is still very mych work in progress and your contibutions
-are always welcomed.
+As usual, you can get the code on [GitHub](https://github.com/sdurz/anonymizerbot), please remember that **uBot** is still pre alpha and your contibutions are always welcome.
