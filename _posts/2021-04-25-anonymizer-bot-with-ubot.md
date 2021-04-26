@@ -3,14 +3,17 @@ title: A simple anonymizer bot with uBot
 toc: false
 tags: git github telgram bot api golang documentation example go
 category: development
+classes: wide
 ---
 
 This is what it takes to implement an anonymizer bot with **uBot**. 
 
-The bot will echo back any message on a private chat but the _/start_ command, please not that this behaviour is achived just by composing 
+The bot will echo back any message on a private chat, ignoring only _/start_ command, please not that this behaviour is achived just by composing 
 existing matchers.
+
 The bot will also that intercept and handle properly any interruption signal by calling a cancel function on the context.
 
+## Code
 ```golang
 // A simple anonymizer bot that echoes back any message it gets in a private chat, so that you can forward it without exposing the original sender.
 package main
@@ -70,6 +73,7 @@ func main() {
 }
 ```
 
+## Usage
 Just start it with your api key as a parameter:
 ```bash
 $ ./anonymizer -apykey <yourapikey>
