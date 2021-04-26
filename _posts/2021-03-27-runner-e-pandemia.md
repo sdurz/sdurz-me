@@ -1,7 +1,7 @@
 ---
 title: Dove sono i redarguitori di runner?
 tags: ramblings running pandemia covid
-category: outdoor
+category: blog
 header:
   image:  /assets/images/teaser/running-teaser.jpg
 ---

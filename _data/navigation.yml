@@ -1,9 +1,11 @@
 # main links
 main:
-  - title: "Outdoor"
-    url: /category/outdoor/
-  - title: "Iceland 2019"
-    url: /iceland/
+  - title: "Blog"
+    url: /category/blog/
+  - title: "Development"
+    url: /category/development/
+  - title: "Travel"
+    url: /category/travel/
   - title: "Tags"
     url: /tags/
   - title: "Archive"

@@ -1,6 +1,6 @@
 ---
 title: Prima uscita in bici del 2021
-category: outdoor
+category: blog
 tags: biking gravel riding preval cormons quarin
 classes: wide
 ---
