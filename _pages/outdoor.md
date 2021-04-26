@@ -1,7 +1,7 @@
 ---
-title: Hiking, running, biking and ...
+title: Hiking, running, biking etc ...
 layout: category
-permalink: /category/outdoor
+permalink: /category/outdoor/
 taxonomy: outdoor
 ---
 
