@@ -103,18 +103,12 @@ author:
     - label: "Website"
       icon: "fas fa-fw fa-link"
       url: "https://sdurz.me"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      # url: "https://twitter.com/"
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url: "https://facebook.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/sdurz"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      # url: "https://instagram.com/"
+    - label: "XMPP/Jabber"
+      icon: "fas fa-fw fa-comments"
+      url: "xmpp:sdurz@jabber.sdurz.me"
 
 # Site Footer
 footer:
@@ -122,21 +116,12 @@ footer:
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: AlexKness
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/sdurz"
-    - label: "GitLab"
-      icon: "fab fa-fw fa-gitlab"
-      # url: "https://gitlab.com/dual75"
-    - label: "Bitbucket"
-      icon: "fab fa-fw fa-bitbucket"
-      # url:
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      # url:
+    - label: "XMPP/Jabber"
+      icon: "fas fa-fw fa-comments"
+      url: "xmpp:sdurz@jabber.sdurz.me"
 
 
 # Reading Files
